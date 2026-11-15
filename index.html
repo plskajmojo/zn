@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a2832">
+<meta name="description" content="Qapalı poker klubu. Telegram ilə qoşul.">
+<title>Private Poker · Kluba daxil ol</title>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
+}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2704938816591826');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2704938816591826&ev=PageView&noscript=1" alt=""></noscript>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%;background:#061e26}
+body{
+  min-height:100vh;min-height:100svh;
+  color:#eae0c2;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:40px 24px;
+  gap:clamp(40px,6vw,64px);
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 40%,rgba(138,198,184,.08),transparent 60%),
+    radial-gradient(ellipse 55% 40% at 50% 100%,rgba(217,169,74,.1),transparent 55%),
+    linear-gradient(180deg,#0a2832 0%,#061e26 55%,#03151b 100%);
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* Subtle noise */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===================================================================
+   OCTAGONAL MEDALLION
+=================================================================== */
+.medallion{
+  position:relative;
+  z-index:2;
+  width:min(520px,calc(100vw - 48px));
+  aspect-ratio:1;
+  filter:drop-shadow(0 30px 50px rgba(0,0,0,.55));
+}
+
+/* Outer concentric rings */
+.ring{
+  position:absolute;
+  border-radius:50%;
+  border:1px solid rgba(217,169,74,.15);
+  pointer-events:none;
+}
+.ring.r1{inset:-6%}
+.ring.r2{inset:-2%;border-color:rgba(217,169,74,.25)}
+
+/* Octagonal frame */
+.octagon{
+  position:absolute;inset:0;
+  clip-path:polygon(
+    30% 0%,70% 0%,
+    100% 30%,100% 70%,
+    70% 100%,30% 100%,
+    0% 70%,0% 30%);
+  background:
+    radial-gradient(ellipse at 50% 35%,#13404e 0%,#0a2a36 55%,#041a22 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(217,169,74,.3),
+    0 20px 40px rgba(0,0,0,.5);
+}
+
+/* Inner octagon with gold border */
+.octagon-inner{
+  position:absolute;inset:6%;
+  clip-path:polygon(
+    30% 0%,70% 0%,
+    100% 30%,100% 70%,
+    70% 100%,30% 100%,
+    0% 70%,0% 30%);
+  background:
+    radial-gradient(ellipse at 50% 35%,#1a5464 0%,#0e3a4a 55%,#061e26 100%);
+}
+
+/* Gold border ring between outer and inner octagons */
+.octagon-border{
+  position:absolute;inset:4%;
+  clip-path:polygon(
+    30% 0%,70% 0%,
+    100% 30%,100% 70%,
+    70% 100%,30% 100%,
+    0% 70%,0% 30%);
+  background:
+    conic-gradient(from 0deg,
+      #d9a94a 0deg,
+      #b88930 30deg,
+      #d9a94a 60deg,
+      #ecc872 90deg,
+      #d9a94a 120deg,
+      #b88930 150deg,
+      #d9a94a 180deg,
+      #ecc872 210deg,
+      #d9a94a 240deg,
+      #b88930 270deg,
+      #d9a94a 300deg,
+      #ecc872 330deg,
+      #d9a94a 360deg);
+  mask-image:radial-gradient(circle,transparent 80%,#000 80.5%);
+  -webkit-mask-image:radial-gradient(circle,transparent 80%,#000 80.5%);
+}
+
+/* Sun-ray fan pattern inside */
+.rays{
+  position:absolute;inset:12%;
+  clip-path:polygon(
+    30% 0%,70% 0%,
+    100% 30%,100% 70%,
+    70% 100%,30% 100%,
+    0% 70%,0% 30%);
+  background:
+    conic-gradient(from 0deg at 50% 50%,
+      transparent 0deg 8deg,
+      rgba(217,169,74,.08) 8deg 10deg,
+      transparent 10deg 22deg,
+      rgba(217,169,74,.08) 22deg 24deg,
+      transparent 24deg 36deg,
+      rgba(217,169,74,.08) 36deg 38deg,
+      transparent 38deg 50deg,
+      rgba(217,169,74,.08) 50deg 52deg,
+      transparent 52deg 64deg,
+      rgba(217,169,74,.08) 64deg 66deg,
+      transparent 66deg 78deg,
+      rgba(217,169,74,.08) 78deg 80deg,
+      transparent 80deg 92deg,
+      rgba(217,169,74,.08) 92deg 94deg,
+      transparent 94deg 106deg,
+      rgba(217,169,74,.08) 106deg 108deg,
+      transparent 108deg 120deg,
+      rgba(217,169,74,.08) 120deg 122deg,
+      transparent 122deg 134deg,
+      rgba(217,169,74,.08) 134deg 136deg,
+      transparent 136deg 148deg,
+      rgba(217,169,74,.08) 148deg 150deg,
+      transparent 150deg 162deg,
+      rgba(217,169,74,.08) 162deg 164deg,
+      transparent 164deg 176deg,
+      rgba(217,169,74,.08) 176deg 178deg,
+      transparent 178deg 190deg,
+      rgba(217,169,74,.08) 190deg 192deg,
+      transparent 192deg 204deg,
+      rgba(217,169,74,.08) 204deg 206deg,
+      transparent 206deg 218deg,
+      rgba(217,169,74,.08) 218deg 220deg,
+      transparent 220deg 232deg,
+      rgba(217,169,74,.08) 232deg 234deg,
+      transparent 234deg 246deg,
+      rgba(217,169,74,.08) 246deg 248deg,
+      transparent 248deg 260deg,
+      rgba(217,169,74,.08) 260deg 262deg,
+      transparent 262deg 274deg,
+      rgba(217,169,74,.08) 274deg 276deg,
+      transparent 276deg 288deg,
+      rgba(217,169,74,.08) 288deg 290deg,
+      transparent 290deg 302deg,
+      rgba(217,169,74,.08) 302deg 304deg,
+      transparent 304deg 316deg,
+      rgba(217,169,74,.08) 316deg 318deg,
+      transparent 318deg 330deg,
+      rgba(217,169,74,.08) 330deg 332deg,
+      transparent 332deg 344deg,
+      rgba(217,169,74,.08) 344deg 346deg,
+      transparent 346deg 358deg,
+      rgba(217,169,74,.08) 358deg 360deg);
+}
+
+/* Central emblem with crossed suits */
+.emblem{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:50%;
+  aspect-ratio:1;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr;
+  gap:clamp(6px,1vw,10px);
+  place-items:center;
+  z-index:2;
+}
+.suit{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(28px,5vw,56px);
+  line-height:1;
+  text-shadow:0 2px 6px rgba(0,0,0,.6);
+  font-weight:700;
+}
+.suit.spade{color:#eae0c2}
+.suit.heart{color:#d9a94a}
+.suit.diamond{color:#d9a94a}
+.suit.club{color:#eae0c2}
+
+/* Center emblem circle (overlaps grid) */
+.emblem-center{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:38%;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:radial-gradient(circle at 40% 35%,#1a5464 0%,#0a2a36 70%,#03151b 100%);
+  border:1.5px solid rgba(217,169,74,.7);
+  box-shadow:
+    inset 0 0 20px rgba(0,0,0,.6),
+    0 0 20px rgba(217,169,74,.2);
+  display:grid;place-items:center;
+  z-index:3;
+}
+.emblem-center::before{
+  content:"P";
+  font-family:Georgia,serif;
+  font-size:clamp(24px,4vw,44px);
+  color:#d9a94a;
+  font-style:italic;
+  font-weight:600;
+  text-shadow:0 2px 4px rgba(0,0,0,.6);
+}
+
+/* Mint accent arcs at corners of medallion */
+.arc{
+  position:absolute;
+  width:clamp(40px,6vw,70px);
+  height:1px;
+  background:linear-gradient(90deg,transparent,#8ac6b8,transparent);
+  opacity:.6;
+}
+.arc.top{top:46%;left:0;transform:rotate(45deg) translateX(-20%)}
+.arc.right{top:46%;right:0;transform:rotate(-45deg) translateX(20%)}
+.arc.bot-l{bottom:46%;left:0;transform:rotate(-45deg) translateX(-20%)}
+.arc.bot-r{bottom:46%;right:0;transform:rotate(45deg) translateX(20%)}
+
+/* ===================================================================
+   CTA
+=================================================================== */
+.cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  gap:14px;
+  width:min(440px,calc(100% - 48px));
+  min-height:66px;
+  padding:0 32px;
+  background:linear-gradient(180deg,#ecc872 0%,#d9a94a 55%,#a07828 100%);
+  color:#0a2832;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  border-radius:4px;
+  border:1px solid rgba(255,230,160,.5);
+  text-decoration:none;
+  box-shadow:
+    0 18px 40px rgba(217,169,74,.25),
+    0 0 0 1px rgba(236,200,114,.2),
+    inset 0 1px 0 rgba(255,255,255,.4),
+    inset 0 -1px 0 rgba(0,0,0,.2);
+  transition:transform .3s ease,filter .3s ease,box-shadow .3s ease;
+  position:relative;
+  overflow:hidden;
+  z-index:3;
+}
+.cta::before{
+  /* Mint shimmer */
+  content:"";position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(138,198,184,.4),transparent);
+  transition:left .7s ease;
+}
+.cta:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.07);
+  box-shadow:
+    0 24px 48px rgba(217,169,74,.35),
+    0 0 0 1px rgba(236,200,114,.35),
+    inset 0 1px 0 rgba(255,255,255,.5),
+    inset 0 -1px 0 rgba(0,0,0,.2);
+}
+.cta:hover::before{left:100%}
+.cta:active{transform:translateY(0)}
+.cta svg{width:18px;height:18px;flex:none;position:relative;z-index:1}
+.cta span{position:relative;z-index:1;white-space:nowrap}
+
+/* ===================================================================
+   RESPONSIVE
+=================================================================== */
+@media(max-width:640px){
+  body{padding:32px 20px;gap:36px}
+  .medallion{width:min(360px,calc(100vw - 40px))}
+  .cta{
+    width:100%;
+    min-height:60px;
+    font-size:12px;
+    letter-spacing:.14em;
+    padding:0 24px;
+  }
+}
+@media(max-width:420px){
+  body{padding:24px 16px;gap:28px}
+  .medallion{width:min(300px,calc(100vw - 32px))}
+  .cta{font-size:11px;letter-spacing:.12em;min-height:58px}
+}
+@media(max-height:640px){
+  body{gap:24px;padding:20px 16px}
+  .medallion{width:min(280px,45vh)}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ OCTAGONAL MEDALLION ============ -->
+<div class="medallion" aria-hidden="true">
+
+  <!-- Outer concentric rings -->
+  <div class="ring r1"></div>
+  <div class="ring r2"></div>
+
+  <!-- Mint accent arcs -->
+  <div class="arc top"></div>
+  <div class="arc right"></div>
+  <div class="arc bot-l"></div>
+  <div class="arc bot-r"></div>
+
+  <!-- Gold border octagon (outer ring) -->
+  <div class="octagon-border"></div>
+
+  <!-- Main octagon body -->
+  <div class="octagon"></div>
+
+  <!-- Inner octagon (darker) -->
+  <div class="octagon-inner"></div>
+
+  <!-- Sun-ray fan pattern -->
+  <div class="rays"></div>
+
+  <!-- Four suits in corners -->
+  <div class="emblem">
+    <span class="suit spade">♠</span>
+    <span class="suit heart">♥</span>
+    <span class="suit diamond">♦</span>
+    <span class="suit club">♣</span>
+  </div>
+
+  <!-- Central circular emblem with monogram P -->
+  <div class="emblem-center"></div>
+
+</div>
+
+<!-- ============ CTA ============ -->
+<a class="cta" id="join-btn"
+   href="https://t.me/+m-IwYm3Z2Tk2Nzc6"
+   target="_blank" rel="noopener noreferrer">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M21.5 3.5 2.5 11l6 2.3L18 6.5l-7 8.2v4.8l3-3.4 4.8 3.5z"/>
+  </svg>
+  <span>KLUBA DAXIL OL</span>
+</a>
+
+<script>
+document.getElementById('join-btn').addEventListener('click',function(){
+  if(typeof fbq==='function'){fbq('track','Lead');}
+});
+</script>
+
+</body>
+</html>
